@@ -57,8 +57,8 @@ if [ "$task" == "rebuild" ]; then
 fi
 mkdir -p $BUILD_DIR && cd $BUILD_DIR
 
-export ACLOCAL=/usr/bin/aclocal-1.15
-export AUTOMAKE=/usr/bin/automake-1.15
+#export ACLOCAL=/usr/bin/aclocal-1.15
+#export AUTOMAKE=/usr/bin/automake-1.15
 
 if [ "$COMPILER" == "msvc" ]; then
     echo $COMPILER is temporary not supported && exit 1
