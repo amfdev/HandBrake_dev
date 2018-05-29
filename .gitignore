@@ -1,0 +1,4 @@
+scripts/_build-mingw_gcc_x64-debug
+scripts/log.txt
+tests/*.mp4
+tests/*.mkv
