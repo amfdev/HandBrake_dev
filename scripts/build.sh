@@ -64,14 +64,11 @@ if [ "$COMPILER" == "msvc" ]; then
     echo $COMPILER is temporary not supported && exit 1
 fi
 
-
+env | grep PATH
 
 if [ "$COMPILER" == "gcc" ]; then
 
-    time.sh $SOURCE_DIR/configure --cross=x86_64-w64-mingw32 --enable-qsv --enable-vce --src=$SOURCE_DIR --launch-jobs=$(nproc) --launch
-    #[ "$task" == "rebuild" ] && time.sh $SOURCE_DIR/configure --cross=x86_64-w64-mingw32 --enable-qsv --launch-jobs=$(nproc) --launch
-    
-    #time.sh make -j${NPROC}
+    time.sh $SOURCE_DIR/configure --cross=${TARGET} --enable-qsv --enable-vce --src=$SOURCE_DIR --launch-jobs=$(nproc) --launch
 fi
 
 cd $ROOT_DIR
