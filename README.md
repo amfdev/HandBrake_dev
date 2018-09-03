@@ -1,6 +1,11 @@
 # HandBrake_dev
 
-### Builg and create installer
+
+
+### Build GUI and create installer
+
+nuget.exe is neaded(https://www.nuget.org/downloads)
+
 Run Scripts/build_hb_gui.bat
 
 In case of  makensis error:
