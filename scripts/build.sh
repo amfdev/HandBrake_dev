@@ -45,8 +45,8 @@ echo build=$BUILD_DIR
 if [ "$COMPILER" == "msvc" ]; then
     [ "$config" == "debug" ] && debugflags="--enable-debug"
 else
-    [ "$config" == "debug" ] && debugflags="--enable-debug --disable-optimizations"
-    [ ! "$config" == "debug" ] && debugflags=--disable-debug
+    [ "$config" == "debug" ] && debugflags="--debug=max"
+    [ ! "$config" == "debug" ] && debugflags="--debug=none"
     
     [ "$link" == "static" ] && linkflags="--extra-ldflags=-static --pkg-config-flags=--static"
     [ "$link" == "shared" ] && linkflags="--extra-ldflags=-static-libgcc"
@@ -68,7 +68,7 @@ env | grep PATH
 
 if [ "$COMPILER" == "gcc" ]; then
 
-    time.sh $SOURCE_DIR/configure --cross=${TARGET} --enable-qsv --enable-vce --src=$SOURCE_DIR --launch-jobs=$(nproc) --launch
+    time.sh $SOURCE_DIR/configure --cross=${TARGET} $debugflags --enable-qsv --enable-vce --src=$SOURCE_DIR --launch-jobs=$(nproc) --launch
 fi
 
 cd $ROOT_DIR
